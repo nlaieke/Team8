@@ -21,7 +21,21 @@ public class Ghost{
 	}
 
 	public boolean is_pacman_in_range() { 
+		ArrayList<Location> pacmanLocations = new ArrayList<Location>();
+		pacmanLocations.add(new Location(myLoc.x + 1, MyLoc.y + 0));
+		pacmanLocations.add(new Location(myLoc.x + 0, MyLoc.y + 1));
+		pacmanLocations.add(new Location(myLoc.x + 0, MyLoc.y - 1));
+		pacmanLocations.add(new Location(myLoc.x - 1, MyLoc.y + 0));
+		
+		
+		for(Location location: pacmanLocations){
+			Map.Map.Type pacmanCheck = myMap.getLoc(location);
+			if(pacmanCheck == Map.Type.PACMAN){
+				return true;
+			}
+	}
 		return false;
+	}
 	}
 
 	public boolean attack() {
