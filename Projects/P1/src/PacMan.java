@@ -32,7 +32,7 @@ public class PacMan{
 		
 		for(Location location: ghostLocations){
 			Map.Map.Type ghostCheck = myMap.getLoc(location);
-			if(type == Map.Type.GHOST){
+			if(ghostCheck == Map.Type.GHOST){
 				return true;
 			}
 	}
