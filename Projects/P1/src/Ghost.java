@@ -1,4 +1,7 @@
 import java.util.HashSet;
+
+import com.sun.jdi.Location;
+
 import java.util.ArrayList;
 
 public class Ghost{
@@ -14,14 +17,14 @@ public class Ghost{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
-		validMoves.add(new Location(myLoc.x + 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x - 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y + 1));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y - 1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x - 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
 
 		for (Location location : validMoves) {
-			Map.Map.Type type = myMap.getLoc(Location);
-			if( type == Map.Type.Wall){
+			HashSet<Map.Type> type = myMap.getLoc(Location);
+			if (type.contains(Map.Type.Wall) || type.contains(Map.Type.GHOST)){
 				validMoves.remove(location);
 			}
 		}	
