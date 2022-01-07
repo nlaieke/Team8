@@ -24,7 +24,7 @@ public class Ghost{
 
 		for (Location location : validMoves) {
 			HashSet<Map.Type> type = myMap.getLoc(Location);
-			if (type.contains(Map.Type.Wall) || type.contains(Map.Type.GHOST)){
+			if (type.contains(Map.Type.Wall)){
 				validMoves.remove(location);
 			}
 		}	
