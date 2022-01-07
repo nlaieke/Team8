@@ -5,7 +5,7 @@ import java.io.*;
 public class TestMapMove extends TestCase{
 
 	public void testMapMove() throws FileNotFoundException {
-		noFrame frame = new noFrame();
+		NoFrame frame = new NoFrame();
 		Map map = frame.getMap();
 		PacMan pacman = frame.addPacMan(new Location(9,11) );
 		Ghost ghost = frame.addGhost(new Location(10,11), "clyde", Color.orange);
