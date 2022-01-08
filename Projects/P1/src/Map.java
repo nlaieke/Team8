@@ -59,8 +59,9 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		//wallSet and emptySet will help you write this method
-		return null;
+		if (field.containsKey(loc)) {
+			return field.get(loc);
+		} else return null;
 	}
 
 	public boolean attack(String Name) {
@@ -68,9 +69,13 @@ public class Map{
 		return false;
 	}
 	
+	//update locations, components, field, and cookies
 	public JComponent eatCookie(String name) {
-		//update locations, components, field, and cookies
-		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		JComponent cookieComp = components.remove(name);
+		Location loc = locations.get(name);
+		field.get(loc).clear();
+		field.get(loc).add(Type.PACMAN);
+		locations.remove(name);
+		return cookieComp;
 	}
 }
