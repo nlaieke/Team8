@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
-public class Map{
+public class Map {
 
 	public enum Type {
 		EMPTY,
@@ -64,8 +64,31 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		Location ghostLocation = locations.get(Name);
+		Location pacman = locations.get("pacman");
+		if(ghostLocation.x == pacman.x && ghostLocation.y == pacman.y){
+			return gameOver;
+		}
+		else if(ghostLocation.x == pacman.x){
+			if(ghostLocation.y == pacman.y +1){
+				return gameOver;
+			}
+			else if(ghostLocation.y == pacman.y -1){
+				return gameOver;
+			}
+			
+		}
+		else if(ghostLocation.y == pacman.y){
+			if(ghostLocation.x == pacman.x +1){
+				return gameOver;
+			}
+			else if(ghostLocation.x == pacman.x -1){
+				return gameOver;
+			}
+				
+		}
+	
+		return true;
 	}
 	
 	public JComponent eatCookie(String name) {
