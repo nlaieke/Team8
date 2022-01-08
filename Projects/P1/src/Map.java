@@ -59,9 +59,7 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		if (field.containsKey(loc)) {
-			return field.get(loc);
-		} else return null;
+		return null
 	}
 
 	public boolean attack(String Name) {
