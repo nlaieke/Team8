@@ -1,7 +1,4 @@
 import java.util.HashSet;
-
-import com.sun.jdi.Location;
-
 import java.util.ArrayList;
 
 public class Ghost{
@@ -28,15 +25,31 @@ public class Ghost{
 				validMoves.remove(location);
 			}
 		}	
-		return validMoves;	}
+		return validMoves;	
+  }
 
 	public boolean move() {
 		return false;
 	}
 
 	public boolean is_pacman_in_range() { 
+		ArrayList<Location> pacmanLocations = new ArrayList<Location>();
+	
+		pacmanLocations.add(new Location(myLoc.x + 1, myLoc.y + 0));
+		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y + 1));
+		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y - 1));
+		pacmanLocations.add(new Location(myLoc.x - 1, myLoc.y + 0));
+		
+		
+		for(Location location: pacmanLocations){
+			HashSet<Map.Type> pacmanCheck = myMap.getLoc(location);
+			if(pacmanCheck.contains(Map.Type.PACMAN)){
+				return true;
+			}
+	}
 		return false;
 	}
+
 
 	public boolean attack() {
 		return false;
