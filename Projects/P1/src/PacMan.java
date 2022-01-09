@@ -32,7 +32,7 @@ public class PacMan{
 		
 		for(Location location: ghostLocations){
 			HashSet<Map.Type> ghostCheck = myMap.getLoc(location);
-			if(ghostCheck.equals(Map.Type.GHOST)){
+			if(ghostCheck.contains(Map.Type.GHOST)){
 				return true;
 			}
 	}
