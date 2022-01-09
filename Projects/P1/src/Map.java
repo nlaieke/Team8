@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
-public class Map{
+public class Map {
 
 	public enum Type {
 		EMPTY,
@@ -66,16 +66,42 @@ public class Map{
 			}
 		else return false;	
 		}
-		
 	
 	public HashSet<Type> getLoc(Location loc) {
-		//wallSet and emptySet will help you write this method
-		return null;
+		if (field.containsKey(loc)) {
+			return field.get(loc);
+		} else {
+			return emptySet;
+		}
 	}
+	
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		Location ghostLocation = locations.get(Name);
+		Location pacman = locations.get("pacman");
+		if(ghostLocation.x == pacman.x && ghostLocation.y == pacman.y){
+			gameOver = true;
+		}
+		else if(ghostLocation.x == pacman.x){
+			if(ghostLocation.y == pacman.y +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.y == pacman.y -1){
+				gameOver = true;
+			}
+			
+		}
+		else if(ghostLocation.y == pacman.y){
+			if(ghostLocation.x == pacman.x +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.x == pacman.x -1){
+				gameOver = true;
+			}
+				
+		}
+	
+		return gameOver;
 	}
 	
 	public JComponent eatCookie(String name) {
