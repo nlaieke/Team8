@@ -29,7 +29,13 @@ public class Ghost{
   }
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> validMoves = get_valid_moves();
+		if validMoves.isEmpty() {
+			return false;
+		} else {
+			this.myLoc.unshift(validMoves.get(0))
+			return true;
+		}
 	}
 
 	public boolean is_pacman_in_range() { 
