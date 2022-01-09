@@ -62,6 +62,8 @@ public class Map{
 		//wallSet and emptySet will help you write this method		
 		if (field.containsKey(loc)) {
 			return field.get(loc);
+		} else if (loc.x < 0 || loc.y < 0 || loc.x > 30 || loc.y > 30) {
+			return wallSet;
 		} else {
 			return emptySet;
 		}
