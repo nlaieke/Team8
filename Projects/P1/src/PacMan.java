@@ -34,6 +34,19 @@ public class PacMan{
 	}
 
 	public boolean is_ghost_in_range() { 
+		ArrayList<Location> ghostLocations = new ArrayList<Location>();
+		ghostLocations.add(new Location(this.myLoc.x + 1, this.myLoc.y + 0));
+		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y + 1));
+		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y - 1));
+		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y + 0));
+		
+		
+		for(Location location: ghostLocations){
+			HashSet<Map.Type> ghostCheck = myMap.getLoc(location);
+			if(ghostCheck.contains(Map.Type.GHOST)){
+				return true;
+			}
+	}
 		return false;
 	}
 
