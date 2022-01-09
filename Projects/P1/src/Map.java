@@ -71,28 +71,28 @@ public class Map {
 		Location ghostLocation = locations.get(Name);
 		Location pacman = locations.get("pacman");
 		if(ghostLocation.x == pacman.x && ghostLocation.y == pacman.y){
-			return gameOver;
+			gameOver = true;
 		}
 		else if(ghostLocation.x == pacman.x){
 			if(ghostLocation.y == pacman.y +1){
-				return gameOver;
+				gameOver = true;
 			}
 			else if(ghostLocation.y == pacman.y -1){
-				return gameOver;
+				gameOver = true;
 			}
 			
 		}
 		else if(ghostLocation.y == pacman.y){
 			if(ghostLocation.x == pacman.x +1){
-				return gameOver;
+				gameOver = true;
 			}
 			else if(ghostLocation.x == pacman.x -1){
-				return gameOver;
+				gameOver = true;
 			}
 				
 		}
 	
-		return true;
+		return gameOver;
 	}
 	
 	public JComponent eatCookie(String name) {
