@@ -16,13 +16,13 @@ public class PacMan{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
-		validMoves.add(new Location(myLoc.x + 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x - 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y + 1));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y - 1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x - 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
 		for (Location location : validMoves) {
-			HashSet<Map.Type> type = myMap.getLoc(Location);
-			if (type.contains(Map.Type.Wall) || type.contains(Map.Type.GHOST)){
+			HashSet<Map.Type> type = myMap.getLoc(location);
+			if (type.contains(Map.Type.WALL) || type.contains(Map.Type.GHOST)){
 				validMoves.remove(location);
 			}
 		}	
