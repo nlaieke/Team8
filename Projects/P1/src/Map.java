@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
-public class Map{
+public class Map {
 
 	public enum Type {
 		EMPTY,
@@ -55,8 +55,17 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
-	}
+		if(loc.x <=30 && loc.y <=30){
+			components.get(name).setLocation(loc.x,loc.y);
+			locations.put(name, loc);
+			if (!field.containsKey(loc)) {
+				field.put(loc, new HashSet<Type>());
+			}
+			field.get(loc).add(type);
+			return true;
+			}
+		else return false;	
+		}
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method		
@@ -66,10 +75,34 @@ public class Map{
 			return emptySet;
 		}
 	}
+	
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		Location ghostLocation = locations.get(Name);
+		Location pacman = locations.get("pacman");
+		if(ghostLocation.x == pacman.x && ghostLocation.y == pacman.y){
+			gameOver = true;
+		}
+		else if(ghostLocation.x == pacman.x){
+			if(ghostLocation.y == pacman.y +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.y == pacman.y -1){
+				gameOver = true;
+			}
+			
+		}
+		else if(ghostLocation.y == pacman.y){
+			if(ghostLocation.x == pacman.x +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.x == pacman.x -1){
+				gameOver = true;
+			}
+				
+		}
+	
+		return gameOver;
 	}
 	
 	public JComponent eatCookie(String name) {
