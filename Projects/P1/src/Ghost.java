@@ -31,7 +31,7 @@ public class Ghost{
 		
 		for(Location location: pacmanLocations){
 			HashSet<Map.Type> pacmanCheck = myMap.getLoc(location);
-			if(pacmanCheck.equals(Map.Type.PACMAN)){
+			if(pacmanCheck.contains(Map.Type.PACMAN)){
 				return true;
 			}
 	}
