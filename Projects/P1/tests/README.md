@@ -1,4 +1,4 @@
-#Project 1: PacMan
+# Project 1: PacMan
 
 Group Members:
 Connor Hartzog. 
