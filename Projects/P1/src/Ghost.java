@@ -20,8 +20,8 @@ public class Ghost{
 		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
 
 		for (Location location : validMoves) {
-			HashSet<Map.Type> type = myMap.getLoc(Location);
-			if (type.contains(Map.Type.Wall)){
+			HashSet<Map.Type> type = myMap.getLoc(location);
+			if (type.contains(Map.Type.WALL)){
 				validMoves.remove(location);
 			}
 		}	
@@ -30,10 +30,10 @@ public class Ghost{
 
 	public boolean move() {
 		ArrayList<Location> validMoves = get_valid_moves();
-		if validMoves.isEmpty() {
+		if(validMoves.isEmpty()) {
 			return false;
 		} else {
-			this.myLoc.unshift(validMoves.get(0))
+			this.myLoc.unshift(validMoves.get(0));
 			return true;
 		}
 	}
@@ -58,6 +58,16 @@ public class Ghost{
 
 
 	public boolean attack() {
+		// check if in range to attack
+		if (is_pacman_in_range()) {
+			// attempt ghost attack using the map class method
+			if (myMap.attack(myName)) {
+				// success
+				return true;
+			}
+		}
+
+		// failure
 		return false;
 	}
 }

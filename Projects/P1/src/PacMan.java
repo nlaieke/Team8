@@ -16,14 +16,15 @@ public class PacMan{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
-		validMoves.add(new Location(myLoc.x + 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x - 1, MyLoc.y + 0));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y + 1));
-		validMoves.add(new Location(myLoc.x + 0, MyLoc.y - 1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x - 1, myLoc.y + 0));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
 
 		for (Location location : validMoves) {
-			Map.Map.Type type = myMap.getLoc(Location);
-			if( type != Map.Type.EMPTY && type != Map.Type.COOKIE){
+			HashSet<Map.Type> type = myMap.getLoc(location);
+			// the location isnt holding a cookie or empty space, its not a valid move
+			if(type.contains(Map.Type.EMPTY) == false && type.contains(Map.Type.COOKIE) == false){
 				validMoves.remove(location);
 			}
 		}	
