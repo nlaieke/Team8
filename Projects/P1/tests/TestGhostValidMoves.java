@@ -14,8 +14,9 @@ public class TestGhostValidMoves extends TestCase {
 		validMoves.add(new Location(10,11));
 		Ghost ghost = frame.addGhost(new Location(9,11), "clyde", Color.orange);
 		System.out.print(validMoves.equals(ghost.get_valid_moves()));
-		assertTrue(validMoves.equals(ghost.get_valid_moves())); // equal ArrayLists.  
-		
+		for(int i= 0; i< validMoves.size(); i++){
+			assertTrue(validMoves.contains(ghost.get_valid_moves().get(i))); // equal ArrayLists.  
+		}		
 	}
 	public void testGhostValidMovesGhostsAndPacMan() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
@@ -28,7 +29,8 @@ public class TestGhostValidMoves extends TestCase {
 		PacMan pacman = frame.addPacMan(new Location (9,12));
 
 		System.out.print(validMoves.equals(ghost.get_valid_moves()));
-		assertTrue(validMoves.equals(ghost.get_valid_moves())); // equal ArrayLists.  
-		
+		for(int i= 0; i< validMoves.size(); i++){
+			assertTrue(validMoves.contains(ghost.get_valid_moves().get(i))); // equal ArrayLists.  
+		}		
 	}
 }

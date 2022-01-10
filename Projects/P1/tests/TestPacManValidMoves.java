@@ -12,8 +12,9 @@ public class TestPacManValidMoves extends TestCase {
 		validMoves.add(new Location(10,11));
 		PacMan pacman = frame.addPacMan(new Location (9,11));
 		System.out.print(validMoves.equals(pacman.get_valid_moves()));
-		assertTrue(validMoves.equals(pacman.get_valid_moves())); // equal ArrayLists.  
-		
+		for(int i= 0; i< validMoves.size(); i++){
+			assertTrue(validMoves.contains(pacman.get_valid_moves().get(i))); // equal ArrayLists.  
+		}		
 	}
 	public void testPacManValidMovesGhostsAndPacMan() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
@@ -24,7 +25,8 @@ public class TestPacManValidMoves extends TestCase {
 
 
 		System.out.print(validMoves.equals(pacman.get_valid_moves()));
-		assertTrue(validMoves.equals(pacman.get_valid_moves())); // equal ArrayLists.  
-		
+		for(int i= 0; i< validMoves.size(); i++){
+			assertTrue(validMoves.contains(pacman.get_valid_moves().get(i))); // equal ArrayLists.  
+		}		
 	}
 }
