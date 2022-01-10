@@ -1,10 +1,12 @@
 import java.util.HashSet;
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Ghost{
 	String myName;
 	Location myLoc;
 	Map myMap;
+	Location shift;
 
 	public Ghost(String name, Location loc, Map map) {
 		this.myLoc = loc;
@@ -33,7 +35,9 @@ public class Ghost{
 		if(validMoves.isEmpty()) {
 			return false;
 		} else {
-			this.myLoc.unshift(validMoves.get(0));
+			this.myLoc = validMoves.get((int)(Math.random()*validMoves.size()));
+			this.shift = this.myLoc.unshift(this.myLoc);
+			this.myMap.move(this.myName, this.myLoc, Map.Type.GHOST);
 			return true;
 		}
 	}
