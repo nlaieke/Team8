@@ -8,8 +8,8 @@ Aminah Yizar
 
 ## Gameplay:
 
-![Alt text](https://raw.githubusercontent.com/cmsc388T-winter22/Team8/main/Projects/P1/tests/Demo1.png?token=GHSAT0AAAAAABQGNITQVV3FSKDFMHCHIG4IYO4PZOA "Demo1")
-![Alt text](https://raw.githubusercontent.com/cmsc388T-winter22/Team8/main/Projects/P1/tests/Demo2.png?token=GHSAT0AAAAAABQGNITRPMYVXNCKRP4HB2PWYO4PZ4Q "Demo2")
+![Alt text](Demo1.png?raw=true "Demo1")
+![Alt text](Demo2.png?raw=true "Demo2")
 
 
 ## Command Line Code: 
