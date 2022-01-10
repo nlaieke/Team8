@@ -13,10 +13,11 @@ Aminah Yizar
 
 
 ## Command Line Code: 
-	### Use this to run the game.
+ Use this to run the game.
 javac -cp "src/" src/*.java
 java -cp "src/" StartMenu
 
+## Pacman Class:
 
 ### get_valid_moves():
 This method will get the locations of the four adjacent tiles and determine which of them is a valid move for pacman. A valid move is one that is not a wall or a ghost. 
@@ -34,7 +35,7 @@ This method checks PacMan’s surroundings to see if there is a ghost within its
 ## Ghost Class:
 
 ### get_valid_moves():
-	This method will get the locations of the four adjacent tiles and determine which of them is a valid move for a Ghost. A valid move is one that is not a wall. 
+This method will get the locations of the four adjacent tiles and determine which of them is a valid move for a Ghost. A valid move is one that is not a wall. 
 This method is tested by artificially putting a Ghost in a location with only 2 valid moves, and a case where one of the moves is occupied by a ghost and pacman. 
 
 
@@ -50,10 +51,10 @@ This method checks a Ghost’s surroundings to see if PacMan is within its attac
 ## Map Class:
 
 ### move(String name, Location loc, Type type):
-	This method updates the sprites location and various map data to keep the GUI mirroring the underlying code. 
+This method updates the sprites location and various map data to keep the GUI mirroring the underlying code. 
 
 ### getLoc(Location loc):
-	This method takes in a Location object, and returns a HashSet of the Types of objects at that location (PACMAN, COOKIE, GHOST, WALL). If the space is outside of the bounds of the maze, a set containing only WALL is returned. Otherwise, the space is empty, and a set containing only EMPTY is returned.  
+This method takes in a Location object, and returns a HashSet of the Types of objects at that location (PACMAN, COOKIE, GHOST, WALL). If the space is outside of the bounds of the maze, a set containing only WALL is returned. Otherwise, the space is empty, and a set containing only EMPTY is returned.  
 
 ### attack(String name):
 This method takes in a String name as a parameter. Given a ghost name, this method will attempt to control a given ghost and attempt to attack PacMan. If the ghost is able to attack PacMan (is in range), the method will update the display to reflect whether the attack was successful and the game should or should not continue. 
