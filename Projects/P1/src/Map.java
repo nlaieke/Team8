@@ -116,6 +116,9 @@ public class Map {
 		if(cookieComp == null) {
 			return null;
 		}
+	
+			cookies++;
+		
 
 		// get location of cookie using the cookie token parameter
 		Location loc = locations.get(name);

@@ -24,7 +24,7 @@ public class PacMan{
 		for (Location location : new ArrayList<Location>(validMoves)) {
 			HashSet<Map.Type> type = myMap.getLoc(location);
 			// the location isnt holding a cookie or empty space, its not a valid move
-			if(type.contains(Map.Type.EMPTY) == false && type.contains(Map.Type.COOKIE) == false){
+			if(type.contains(Map.Type.WALL) || type.contains(Map.Type.GHOST)){
 				validMoves.remove(location);
 			}
 		}	
