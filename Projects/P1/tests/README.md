@@ -8,8 +8,7 @@ Aminah Yizar
 
 ## Gameplay:
 
-![Alt text](/Team8/Projects/P1/src/assets/Demo1.png?raw=true "Optional Title")
-
+![Alt text](Demo1.png?raw=true "Optional Title")
 
 ## Command Line Code: 
 	### Use this to run the game.
