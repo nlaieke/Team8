@@ -14,7 +14,9 @@ Aminah Yizar
 
 ## Command Line Code: 
  Use this to run the game.
+
 javac -cp "src/" src/*.java
+
 java -cp "src/" StartMenu
 
 ## Pacman Class:
@@ -54,7 +56,7 @@ This method checks a Ghost’s surroundings to see if PacMan is within its attac
 This method updates the sprites location and various map data to keep the GUI mirroring the underlying code. 
 
 ### getLoc(Location loc):
-This method takes in a Location object, and returns a HashSet of the Types of objects at that location (PACMAN, COOKIE, GHOST, WALL). If the space is outside of the bounds of the maze, a set containing only WALL is returned. Otherwise, the space is empty, and a set containing only EMPTY is returned.  
+This method takes in a Location object, and returns a HashSet of the Types of objects at that location (PACMAN, COOKIE, GHOST, WALL). If the location is outside of the bounds of the maze, a set containing only WALL is returned. Otherwise, the space at the location is empty, and a set containing only EMPTY is returned.  
 
 ### attack(String name):
 This method takes in a String name as a parameter. Given a ghost name, this method will attempt to control a given ghost and attempt to attack PacMan. If the ghost is able to attack PacMan (is in range), the method will update the display to reflect whether the attack was successful and the game should or should not continue. 
