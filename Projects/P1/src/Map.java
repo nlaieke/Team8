@@ -107,9 +107,27 @@ public class Map {
 		return gameOver;
 	}
 	
+	// eat cookie by updating locations, cookie components, field hash
+	// parameter given will be the cookie's token name: example "tok_x1_y2"
 	public JComponent eatCookie(String name) {
-		//update locations, components, field, and cookies
-		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		// use cookie taken parameter to remove cookie from cookie components
+		JComponent cookieComp = components.remove(name);
+
+		if(cookieComp == null) {
+			return null;
+		}
+
+		// get location of cookie using the cookie token parameter
+		Location loc = locations.get(name);
+
+		// clear that location on map's field hash
+		field.get(loc).clear();
+
+		//replace with pacman who just ate the cookie
+		field.get(loc).add(Type.PACMAN);
+
+		// remove cookie's location from map
+		locations.remove(name);
+		return cookieComp;
 	}
 }
