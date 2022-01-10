@@ -56,7 +56,18 @@ public class PacMan{
 		return false;
 	}
 
+	// consumes cookie that pacman may be on top of
 	public JComponent consume() { 
- 		return null;
+		// check map for cookie at current location
+		if (myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE) == true) {
+			// consume cookie
+			int x = this.myLoc.x;
+			int y = this.myLoc.y;
+			String cookieName = "tok_x" + x + "_y" + y;
+			return myMap.eatCookie(cookieName);
+		}
+
+		// no cookie
+			return null;
 	}
 }
