@@ -20,7 +20,7 @@ public class PacMan{
 		validMoves.add(new Location(myLoc.x - 1, myLoc.y + 0));
 		validMoves.add(new Location(myLoc.x + 0, myLoc.y + 1));
 		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
-		for (Location location : validMoves) {
+		for (Location location : new ArrayList<Location>(validMoves)) {
 			HashSet<Map.Type> type = myMap.getLoc(location);
 			// the location isnt holding a cookie or empty space, its not a valid move
 			if(type.contains(Map.Type.EMPTY) == false && type.contains(Map.Type.COOKIE) == false){
