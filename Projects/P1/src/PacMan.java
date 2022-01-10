@@ -31,14 +31,43 @@ public class PacMan{
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> validMoves = get_valid_moves();
+		if (validMoves.isEmpty()) {
+			return false;
+		} else {
+			this.myLoc.unshift(validMoves.get(0));
+			return true;
+		}
 	}
 
 	public boolean is_ghost_in_range() { 
+		ArrayList<Location> ghostLocations = new ArrayList<Location>();
+		ghostLocations.add(new Location(this.myLoc.x + 1, this.myLoc.y + 0));
+		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y + 1));
+		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y - 1));
+		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y + 0));
+		
+		
+		for(Location location: ghostLocations){
+			HashSet<Map.Type> ghostCheck = myMap.getLoc(location);
+			if(ghostCheck.contains(Map.Type.GHOST)){
+				return true;
+			}
+	}
 		return false;
 	}
-
+	// consumes cookie that pacman may be on top of
 	public JComponent consume() { 
- 		return null;
+ 		// check map for cookie at current location
+		if (myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE) == true) {
+			// consume cookie
+			int x = this.myLoc.x;
+			int y = this.myLoc.y;
+			String cookieName = "tok_x" + x + "_y" + y;
+			return myMap.eatCookie(cookieName);
+		}
+
+		// no cookie
+			return null;
 	}
 }
