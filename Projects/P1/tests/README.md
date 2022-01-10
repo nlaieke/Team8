@@ -7,7 +7,8 @@ Alex Srey
 Aminah Yizar
 
 ## Gameplay:
-![Alt text](https://keep.google.com/u/0/media/v2/1DtKPmrzpz9c6SjN5VJ0CnBiucpRFCQqOH3a-KWqhQMhl6IBvFH54oiNrgSS-VdE/1HbDIhVl_encE20N2BhSakbpV61lY8YM2H7naQl07S9jxbTpm1FjE2LzVBXvZdA?sz=512&accept=image%2Fgif%2Cimage%2Fjpeg%2Cimage%2Fjpg%2Cimage%2Fpng%2Cimage%2Fwebp "Optional title")
+
+![Alt text](Demo1.png?raw=true "Optional Title")
 
 ## Command Line Code: 
 	### Use this to run the game.
