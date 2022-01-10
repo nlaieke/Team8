@@ -9,8 +9,8 @@ public class TestMapGetLoc extends TestCase {
 		NoFrame frame = new NoFrame();
 		Map m = frame.getMap();
 
-		HashSet<Map.Type> emptySet = new HashSet<Map.Type>();
-		emptySet.add(Map.Type.EMPTY);
+		HashSet<Map.Type> wallSet = new HashSet<Map.Type>();
+		wallSet.add(Map.Type.WALL);
 		frame.addPacMan(new Location(2,1));
 		frame.addGhost(new Location(1,1), "Blinky", Color.red);
 		
@@ -21,7 +21,7 @@ public class TestMapGetLoc extends TestCase {
 		assertFalse(m.getLoc(new Location(2,1)).contains(Map.Type.EMPTY)); // tests that empty is not in a location w/ objects
 		assertFalse(m.getLoc(new Location(1,1)).contains(Map.Type.EMPTY)); // tests that empty is not in a location w/ objects
 
-		assertTrue(m.getLoc(new Location(-1, -1)).equals(emptySet)); // tests that out of range locations are empty
-		assertTrue(m.getLoc(new Location(40, 40)).equals(emptySet)); // tests that out of range locations are empty
+		assertTrue(m.getLoc(new Location(-1, -1)).equals(wallSet)); // tests that out of range locations are walls
+		assertTrue(m.getLoc(new Location(40, 40)).equals(wallSet)); // tests that out of range locations are walls
 	}
 }
