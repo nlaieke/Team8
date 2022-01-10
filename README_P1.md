@@ -34,6 +34,9 @@ This method checks PacMan’s surroundings to see if there is a ghost within its
 
 ### consume():
 
+Consume() consumes cookie that pacman may be on top of when it moves to a new spot. We get the current location of pacman, and we check the map to see if that spot (Hash Set) contains a Cookie type. If it contains a cookie, this function will then call the corresponding map.eatCookie(cookie_name) function which updates the map display and data storing this cookie.
+If there is no cookie, null is returned.
+
 ## Ghost Class:
 
 ### get_valid_moves():
@@ -50,6 +53,8 @@ This method checks a Ghost’s surroundings to see if PacMan is within its attac
 
 ### attack():
 
+ghost.attack() is used to check if a specific ghost is in range to attack the pacman. We do this by seeing if pacman_is_in_range(). If in range, we call map.attack(ghostName) which will check map conditions for attacking, and update game over status. If attack succeeds and gameover, then we return true otherwise we return false and the game continues.
+
 ## Map Class:
 
 ### move(String name, Location loc, Type type):
@@ -62,3 +67,5 @@ This method takes in a Location object, and returns a HashSet of the Types of ob
 This method takes in a String name as a parameter. Given a ghost name, this method will attempt to control a given ghost and attempt to attack PacMan. If the ghost is able to attack PacMan (is in range), the method will update the display to reflect whether the attack was successful and the game should or should not continue. 
 
 ### eatCookie(String name):
+
+function eats cookie by removing the cookie from data stored in locations, cookie components, and field hash which in turn removes it from the display. This prevents the same cookie from being eaten twice. The parameter/input is the cookie's token name: example "tok_x1_y2" which also serves as the 'key' to certain hashSets of data we must update. If cookie is eaten, we update the cookie count. If not eaten, we return null.
