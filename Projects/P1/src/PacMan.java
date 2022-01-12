@@ -38,7 +38,7 @@ public class PacMan{
 		} else {
 			this.myLoc = validMoves.get((int)(Math.random()*validMoves.size()));
 			this.shift = this.myLoc.unshift(this.myLoc);
-			this.myMap.move(this.myName, this.myLoc, Map.Type.PACMAN);
+			this.myMap.move(this.myName, this.myLoc, Map.Pacman);
 			return true;
 		}
 	}
