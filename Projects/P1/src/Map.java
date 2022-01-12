@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
-public class Map{
+public class Map {
 
 	public enum Type {
 		EMPTY,
@@ -55,22 +55,82 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
-	}
+		if(loc.x <=30 && loc.y <=30){
+			components.get(name).setLocation(loc.x,loc.y);
+			locations.put(name, loc);
+			if (!field.containsKey(loc)) {
+				field.put(loc, new HashSet<Type>());
+			}
+			field.get(loc).add(type);
+			return true;
+			}
+		else return false;	
+		}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		//wallSet and emptySet will help you write this method
-		return null;
-	}
-
-	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		//wallSet and emptySet will help you write this method		
+		if (field.containsKey(loc)) {
+			return field.get(loc);
+		} else if (loc.x < 0 || loc.y < 0 || loc.x > 30 || loc.y > 30) {
+			return wallSet;
+		} else {
+			return emptySet;
+		}
 	}
 	
+
+	public boolean attack(String Name) {
+		Location ghostLocation = locations.get(Name);
+		Location pacman = locations.get("pacman");
+		if(ghostLocation.x == pacman.x && ghostLocation.y == pacman.y){
+			gameOver = true;
+		}
+		else if(ghostLocation.x == pacman.x){
+			if(ghostLocation.y == pacman.y +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.y == pacman.y -1){
+				gameOver = true;
+			}
+			
+		}
+		else if(ghostLocation.y == pacman.y){
+			if(ghostLocation.x == pacman.x +1){
+				gameOver = true;
+			}
+			else if(ghostLocation.x == pacman.x -1){
+				gameOver = true;
+			}
+				
+		}
+	
+		return gameOver;
+	}
+	
+	// eat cookie by updating locations, cookie components, field hash
+	// parameter given will be the cookie's token name: example "tok_x1_y2"
 	public JComponent eatCookie(String name) {
-		//update locations, components, field, and cookies
-		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		// use cookie taken parameter to remove cookie from cookie components
+		JComponent cookieComp = components.remove(name);
+
+		if(cookieComp == null) {
+			return null;
+		}
+	
+			cookies++;
+		
+
+		// get location of cookie using the cookie token parameter
+		Location loc = locations.get(name);
+
+		// clear that location on map's field hash
+		field.get(loc).clear();
+
+		//replace with pacman who just ate the cookie
+		field.get(loc).add(Type.PACMAN);
+
+		// remove cookie's location from map
+		locations.remove(name);
+		return cookieComp;
 	}
 }
