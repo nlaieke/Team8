@@ -16,10 +16,10 @@ public class Ghost{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
-		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 0));
-		validMoves.add(new Location(myLoc.x - 1, myLoc.y + 0));
-		validMoves.add(new Location(myLoc.x + 0, myLoc.y + 1));
-		validMoves.add(new Location(myLoc.x + 0, myLoc.y - 1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x - 1, myLoc.y + -1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x + -1, myLoc.y - 1));
 
 		for (Location location : new ArrayList<Location>(validMoves)) {
 			HashSet<Map.Type> type = myMap.getLoc(location);
