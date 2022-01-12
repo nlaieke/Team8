@@ -8,6 +8,8 @@ public class TestGhostMove extends TestCase {
 		NoFrame frame = new NoFrame();
 		Map m = frame.getMap();
 
+		frame.addGhost(new Location(1,1), "Blinky", Color.RED);
+
 		Ghost ghost = new Ghost("Blinky", new Location(1,1), m);
 		for(Location location : ghost.get_valid_moves()) {
 			System.out.println(location.x + "," + location.y);
