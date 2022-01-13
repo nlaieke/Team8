@@ -48,6 +48,7 @@ public class Ghost{
 		pacmanLocations.add(new Location(myLoc.x + 1, myLoc.y + 0));
 		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y + 1));
 		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y - 1));
+		pacmanLocations.add(new Location(myLoc.x - 1, myLoc.y - 1));
 		pacmanLocations.add(new Location(myLoc.x - 1, myLoc.y + 0));
 		
 		
