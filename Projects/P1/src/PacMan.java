@@ -48,6 +48,7 @@ public class PacMan{
 		ghostLocations.add(new Location(this.myLoc.x + 1, this.myLoc.y + 0));
 		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y + 1));
 		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y - 1));
+		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
 		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y + 0));
 		
 		
