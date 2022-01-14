@@ -19,5 +19,14 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: javac -cp "src/" Projects/P1/src/*.java
+      - run: javac -cp "src/" Projects/P1/src/*.java
 
+  mapgetloc:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Map getLoc Test
+      - run: 
+        javac -cp "junit-4.10.jar;.*" *.java
+        java -cp "junit-4.10.jar;." org.junit.runner.JunitCore TestMapGetLoc    
