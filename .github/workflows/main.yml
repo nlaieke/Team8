@@ -28,8 +28,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Pacman is_ghost_in_range test
         run: |
-          cd Projects/P1
-          javac -cp "src/" src/*.java
+          cd Projects
+          cd P1
           javac -cp "tests/junit-4.10.jar;src/;tests/" src/Pacman.java tests/TestGhostInRange.java
           java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestGhostInRange
 
