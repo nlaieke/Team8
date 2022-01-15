@@ -30,6 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Compile
-        run: javac -cp "tests/junit-4.10.jar;tests/*;src/*" src/*.java tests/*.java
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/*.java
       - name: Run TestMapGetLoc
-        run: java -cp "tests/junit-4.10.jar;src/;tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapGetLoc
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapGetLoc
