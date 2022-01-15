@@ -30,5 +30,5 @@ jobs:
         run: |
           cd Projects/P1
           javac -cp "src/" src/*.java
-          javac -cp "tests/junit-4.10.jar;src/;tests/" src/Map.java tests/TestMapGetLoc.java
+          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/TestMapGetLoc.java
           java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestMapGetLoc
