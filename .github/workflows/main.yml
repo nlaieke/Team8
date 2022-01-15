@@ -20,4 +20,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: javac -cp "src/" Projects/P1/src/*.java
+        
+  ghostinrange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pacman is_ghost_in_range test
+        run: |
+          cd Projects/P1
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar;src/;tests/" src/Pacman.java tests/TestGhostInRange.java
+          java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestGhostInRange
+
 
