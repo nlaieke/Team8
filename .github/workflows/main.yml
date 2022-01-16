@@ -43,6 +43,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Ghost is_pacman_in_range test compilation
-        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestPacmanInRange.java
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestPacManInRange.java
       - name:  run Ghost is_ghost_in_range test
         run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestPacManInRange
