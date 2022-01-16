@@ -21,3 +21,41 @@ jobs:
       - name: Run a one-line script
         run: javac -cp "src/" Projects/P1/src/*.java
 
+  mapgetloc:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestMapGetLoc
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestMapGetLoc.java
+      - name: Run TestMapGetLoc
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapGetLoc
+
+  pacmanmove:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestPacManMove
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestPacManMove.java
+      - name: Run TestPacManMove
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestPacManMove
+
+  ghostmove:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestGhostMove
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestGhostMove.java
+      - name: Run TestGhostMove
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestGhostMove
