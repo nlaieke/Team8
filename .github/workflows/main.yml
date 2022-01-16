@@ -34,3 +34,41 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+  Pac-Man-get_valid_moves:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestPacManValidMoves
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestPacManValidMoves.java
+      - name: Run TestPacManValidMoves
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestPacManValidMoves
+  Ghost-get_valid_moves:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestGhostValidMoves
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestGhostValidMoves.java
+      - name: Run TestGhostValidMoves
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestGhostValidMoves
+  MapMove:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestMapMove
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestMapMove.java
+      - name: Run TestMapMove
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapMove
+
