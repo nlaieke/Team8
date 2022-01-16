@@ -3,8 +3,6 @@ import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 
-import com.sun.jdi.Location;
-
 public class TestGhostValidMoves extends TestCase {
 
 	public void testGhostValidMovesEmpty() throws FileNotFoundException{
