@@ -20,6 +20,45 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: javac -cp "src/" Projects/P1/src/*.java
+        
+  Pacman-is_ghost_in_range:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pacman is_ghost_in_range test compilation
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestGhostInRange.java
+      - name:  run Pacman is_ghost_in_range test
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestGhostInRange
+
+  Ghost-is_pacman_in_range:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ghost is_pacman_in_range test compilation
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestPacManInRange.java
+      - name:  run Ghost is_pacman_in_range test
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestPacManInRange
+        
+  Map-attack:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Map attack compilation
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestMapAttack.java
+      - name:  run Map attack test
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapAttack
 
   mapgetloc:
     runs-on: ubuntu-latest
