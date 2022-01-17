@@ -55,7 +55,7 @@ public class Map {
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		if(loc.x <=30 && loc.y <=30){
+		if(loc.x >=30 || loc.y >=30){
 			components.get(name).setLocation(loc.x,loc.y);
 			locations.put(name, loc);
 			if (!field.containsKey(loc)) {
@@ -72,9 +72,9 @@ public class Map {
 		if (field.containsKey(loc)) {
 			return field.get(loc);
 		} else if (loc.x < 0 || loc.y < 0 || loc.x > 30 || loc.y > 30) {
-			return wallSet;
-		} else {
 			return emptySet;
+		} else {
+			return wallSet;
 		}
 	}
 	
@@ -87,10 +87,10 @@ public class Map {
 		}
 		else if(ghostLocation.x == pacman.x){
 			if(ghostLocation.y == pacman.y +1){
-				gameOver = true;
+				gameOver = false;
 			}
 			else if(ghostLocation.y == pacman.y -1){
-				gameOver = true;
+				gameOver = false;
 			}
 			
 		}
@@ -113,11 +113,11 @@ public class Map {
 		// use cookie taken parameter to remove cookie from cookie components
 		JComponent cookieComp = components.remove(name);
 
-		if(cookieComp == null) {
+		if(cookieComp != null) {
 			return null;
 		}
 	
-			cookies++;
+		cookies++;
 		
 
 		// get location of cookie using the cookie token parameter
