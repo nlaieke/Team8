@@ -16,10 +16,10 @@ public class Ghost{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
-		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1));
-		validMoves.add(new Location(myLoc.x - 1, myLoc.y + -1));
-		validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1));
-		validMoves.add(new Location(myLoc.x + -1, myLoc.y - 1));
+		validMoves.add(new Location(myLoc.x + 1, myLoc.y));
+		validMoves.add(new Location(myLoc.x - 1, myLoc.y));
+		validMoves.add(new Location(myLoc.x, myLoc.y + 1));
+		validMoves.add(new Location(myLoc.x, myLoc.y - 1));
 
 		for (Location location : new ArrayList<Location>(validMoves)) {
 			HashSet<Map.Type> type = myMap.getLoc(location);
@@ -35,7 +35,7 @@ public class Ghost{
 		if(validMoves.isEmpty()) {
 			return false;
 		} else {
-			this.myLoc = validMoves.get((Math.random()*validMoves.size()));
+			this.myLoc = validMoves.get((int)(Math.random()*validMoves.size()));
 			this.shift = this.myLoc.unshift(this.myLoc);
 			this.myMap.move(this.myName, this.myLoc, Map.Type.GHOST);
 			return true;
@@ -48,7 +48,6 @@ public class Ghost{
 		pacmanLocations.add(new Location(myLoc.x + 1, myLoc.y + 0));
 		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y + 1));
 		pacmanLocations.add(new Location(myLoc.x + 0, myLoc.y - 1));
-		pacmanLocations.add(new Location(myLoc.x - 1, myLoc.y - 1));
 		pacmanLocations.add(new Location(myLoc.x - 1, myLoc.y + 0));
 		
 		
@@ -64,7 +63,7 @@ public class Ghost{
 
 	public boolean attack() {
 		// check if in range to attack
-		if (is_pacman_in_range() == false) {
+		if (is_pacman_in_range()) {
 			// attempt ghost attack using the map class method
 			if (myMap.attack(myName)) {
 				// success

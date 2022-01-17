@@ -24,7 +24,7 @@ public class PacMan{
 		for (Location location : new ArrayList<Location>(validMoves)) {
 			HashSet<Map.Type> type = myMap.getLoc(location);
 			// the location isnt holding a cookie or empty space, its not a valid move
-			if(type.contains(Map.Type.PACMAN) && type.contains(Map.Type.COOKIE)){
+			if(type.contains(Map.Type.WALL) || type.contains(Map.Type.GHOST)){
 				validMoves.remove(location);
 			}
 		}	
@@ -38,7 +38,7 @@ public class PacMan{
 		} else {
 			this.myLoc = validMoves.get((int)(Math.random()*validMoves.size()));
 			this.shift = this.myLoc.unshift(this.myLoc);
-			this.myMap.move(this.myName, this.myLoc, Map.Pacman);
+			this.myMap.move(this.myName, this.myLoc, Map.Type.PACMAN);
 			return true;
 		}
 	}
@@ -48,7 +48,6 @@ public class PacMan{
 		ghostLocations.add(new Location(this.myLoc.x + 1, this.myLoc.y + 0));
 		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y + 1));
 		ghostLocations.add(new Location(this.myLoc.x + 0, this.myLoc.y - 1));
-		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y - 1));
 		ghostLocations.add(new Location(this.myLoc.x - 1, this.myLoc.y + 0));
 		
 		
@@ -63,7 +62,7 @@ public class PacMan{
 	// consumes cookie that pacman may be on top of
 	public JComponent consume() { 
  		// check map for cookie at current location
-		if (myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE) == false) {
+		if (myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
 			// consume cookie
 			int x = this.myLoc.x;
 			int y = this.myLoc.y;
