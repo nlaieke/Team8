@@ -11,6 +11,8 @@ public class TestPacManMove extends TestCase {
 		frame.addPacMan(new Location(1,1));
 
 		PacMan pacman = new PacMan("pacman", new Location(1,1), m);
+		frame.addPacMan(new Location(1,1));
+
 		for(Location location : pacman.get_valid_moves()) {
 			System.out.println(location.x + "," + location.y);
 		}
