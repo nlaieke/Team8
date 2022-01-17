@@ -87,10 +87,10 @@ public class Map {
 		}
 		else if(ghostLocation.x == pacman.x){
 			if(ghostLocation.y == pacman.y +1){
-				gameOver = false;
+				gameOver = true;
 			}
 			else if(ghostLocation.y == pacman.y -1){
-				gameOver = false;
+				gameOver = true;
 			}
 			
 		}
