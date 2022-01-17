@@ -113,7 +113,7 @@ public class Map {
 		// use cookie taken parameter to remove cookie from cookie components
 		JComponent cookieComp = components.remove(name);
 
-		if(cookieComp != null) {
+		if(cookieComp == null) {
 			return null;
 		}
 	
