@@ -135,4 +135,42 @@ jobs:
         run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestGhostMove.java
       - name: Run TestGhostMove
         run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestGhostMove
-        
+
+  ghostattack:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestAttack
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestAttack.java
+      - name: Run TestAttack
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestAttack
+
+  mapeatcookie:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestMapEatCookie
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestMapEatCookie.java
+      - name: Run TestMapEatCookie
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestMapEatCookie
+
+  pacmanconsume:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Projects/P1
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile TestConsume
+        run: javac -cp "tests/junit-4.10.jar:tests/*:src/*" src/*.java tests/TestConsume.java
+      - name: Run TestConsume
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" -Djava.awt.headless=true org.junit.runner.JUnitCore TestConsume
