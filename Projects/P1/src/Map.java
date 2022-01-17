@@ -55,7 +55,7 @@ public class Map {
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		if(loc.x >=30 || loc.y >=30){
+		if(loc.x <=30 && loc.y <=30){
 			components.get(name).setLocation(loc.x,loc.y);
 			locations.put(name, loc);
 			if (!field.containsKey(loc)) {
